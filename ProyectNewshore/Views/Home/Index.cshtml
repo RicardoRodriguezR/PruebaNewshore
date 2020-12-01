@@ -1,0 +1,66 @@
+﻿@model ProyectNewshore.Models.FlightModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row col" s12>
+
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" href="#one!"><img src="~/Image/carousel 1.jpeg"><h2 class="center-align text black-text">Difruta</h2></a>
+        <a class="carousel-item" href="#two!"><img src="~/Image/carousel 2.jpeg"><h2 class="center-align text black-text">Viaja</h2></a>
+        <a class="carousel-item" href="#two!"><img src="~/Image/carousel 3.jpeg"><h2 class="center-align text black-text">Vive</h2></a>
+        <a class="carousel-item" href="#two!"><img src="~/Image/carousel 4.jpeg"><h2 class="center-align text black-text">Conoce</h2></a>
+        <a class="carousel-item" href="#two!"><img src="~/Image/carousel 5.jpeg"><h2 class="center-align text black-text">Diviertete</h2></a>
+        <a class="carousel-item" href="#two!"><img src="~/Image/carousel 6.jpeg"><h2 class="center-align text black-text">Sonrie</h2></a>
+    </div>
+</div>
+@using (Html.BeginForm("Index", "Home"))
+{
+    <div class="row col s12">
+        <div class="input-field col s4">
+            <select class="browser-default" name="origin">
+                <option value="" disabled selected>Origen</option>
+                <option value="BOG">BOG</option>
+                <option value="CTG">CTG</option>
+                <option value="MDN">MDN</option>
+            </select>
+        </div>
+        <div class="input-field col s4">
+            <select class="browser-default" name="destination">
+                <option value="" disabled selected>Destinatino</option>
+                <option value="BOG">BOG</option>
+                <option value="CTG">CTG</option>
+                <option value="MDN">MDN</option>
+            </select>
+        </div>
+        <div class=" input-field col s4">
+            <input type="text" class="datepicker" placeholder="Date" name="from">
+        </div>
+    </div>
+    <div class="row col s12">
+        <div class="col s4"></div>
+        <div class="col s4 center-align">
+            <button class="waves-effect waves-light btn white-text black"
+                    name="Search" type="submit">
+                Buscar
+            </button>
+        </div>
+        <div class="col s4"></div>
+
+    </div>
+}
+<table class="table">
+
+    @if () {
+        @foreach (var item in ListFliht)
+        {
+            <tr>
+                <td class="fila">
+                    <h4 class="nombre-servicio">@Html.DisplayFor(modelItem => item.Nombre_servicio)</h4>
+                    <p>
+                        @Html.ActionLink("Detalle", "Detalle", new { id = item.Servicio }, new { @class = "btn-detalle" })
+                    </p>
+                </td>
+            </tr>
+        }
+    }
+</table>
